@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import dirToMouse from './animation/dirToMouse';
+import chaser from './animation/chaser';
+import bug from './animation/bugs';
+import drawSine from './animation/drawSine';
+import moveWithSine from './animation/moveWithSine';
 class App extends Component {
+  componentDidMount() {
+    // new dirToMouse();
+    // new chaser();
+    // new bug();
+    // new drawSine();
+    new moveWithSine();
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <canvas className="mycanvas" />
       </div>
     );
   }
