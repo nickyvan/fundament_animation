@@ -15,12 +15,13 @@ export default class SpaceShip {
 		window.addEventListener(
 			'keydown',
 			(event) => {
+				event.preventDefault();
 				switch (event.keyCode) {
 					case 37: //left
-						this.vr = -3;
+            this.vr = -3;
 						break;
 					case 39: //right
-						this.vr = 3;
+            this.vr = 3;
 						break;
 					case 38: //up
 						this.thrust = 0.05;
@@ -48,14 +49,16 @@ export default class SpaceShip {
 	}
 	animation = () => {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.ship.rotation += this.vr * Math.PI / 180;
-    let angle = this.ship.rotation; //in radians
-    this.ax = Math.cos(angle) * this.thrust;
-    this.ay = Math.sin(angle) * this.thrust;
-    this.vx += this.ax;
-    this.vy += this.ay;
-    this.ship.x += this.vx;
-    this.ship.y += this.vy;
+		this.ship.rotation += (this.vr * Math.PI) / 180;
+		let angle = this.ship.rotation; //in radians
+		this.ax = Math.cos(angle) * this.thrust;
+		this.ay = Math.sin(angle) * this.thrust;
+
+		this.vx += this.ax;
+		this.vy += this.ay;
+
+		this.ship.x += this.vx;
+		this.ship.y += this.vy;
 		this.ship.draw();
 		requestAnimationFrame(() => this.animation());
 	};
