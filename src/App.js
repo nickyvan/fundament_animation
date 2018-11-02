@@ -4,13 +4,15 @@ import chaser from './animation/chaser';
 import bug from './animation/bugs';
 import drawSine from './animation/drawSine';
 import moveWithSine from './animation/moveWithSine';
+import SpaceShip from './animation/space_ship';
 class App extends Component {
   componentDidMount() {
     // new dirToMouse();
     // new chaser();
     // new bug();
     // new drawSine();
-    new moveWithSine();
+    // new moveWithSine();
+    new SpaceShip();
   }
 
   render() {
